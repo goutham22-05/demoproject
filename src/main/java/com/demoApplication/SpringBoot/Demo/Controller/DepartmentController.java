@@ -1,15 +1,14 @@
 package com.demoApplication.SpringBoot.Demo.Controller;
-
 import com.demoApplication.SpringBoot.Demo.Entity.Department;
 import com.demoApplication.SpringBoot.Demo.Exception.DepartmentNotFoundException;
 import com.demoApplication.SpringBoot.Demo.Service.DepartmentService;
 import jakarta.validation.Valid;
+import lombok.SneakyThrows;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -61,7 +60,14 @@ public class DepartmentController {
         return departmentService.getByDepartmentAddress(departmentAddress);
 
     }
+    @GetMapping
+    public  Department getByDepartmenId(@PathVariable int id){
+        try {
+            return departmentService.getDepartmentById((long) id);
+        } catch (DepartmentNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
-
+    }
 
 }

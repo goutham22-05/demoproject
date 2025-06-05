@@ -1,12 +1,9 @@
 package com.demoApplication.SpringBoot.Demo.Service;
-
-
 import com.demoApplication.SpringBoot.Demo.Entity.Department;
 import com.demoApplication.SpringBoot.Demo.Exception.DepartmentNotFoundException;
 import com.demoApplication.SpringBoot.Demo.Repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -19,7 +16,6 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public Department saveDepartment(Department department) {
         return departmentRepository.save(department);
-
 
     }
 
